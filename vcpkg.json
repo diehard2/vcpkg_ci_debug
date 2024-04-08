@@ -1,0 +1,11 @@
+{
+  "name": "your-project-name",
+  "version-string": "1.0.0",
+  "dependencies": [
+    {
+      "name": "c-ares",
+      "version-string": "1.19.1"
+    },
+    grpc
+  ]
+}

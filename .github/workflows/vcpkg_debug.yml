@@ -14,6 +14,8 @@ jobs:
     - name: Install package
       run: |
         sudo apt-get update
+        sudo rm `which cmake`
+        hash -r
         sudo apt-get install perl autoconf-archive ninja-build cmake pkg-config
     - name: Install vcpkg
       run: |

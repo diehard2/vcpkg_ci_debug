@@ -22,11 +22,5 @@ jobs:
         env
     - name: Install grpc
       run: |
-          set +e
-          vcpkg/vcpkg install grpc
-          echo "***** debug *****"
-          cat /home/runner/work/vcpkg_ci_debug/vcpkg_ci_debug/vcpkg/buildtrees/grpc/config-x64-linux-dbg-CMakeCache.txt.log
-          echo "***** release *****"
-          cat /home/runner/work/vcpkg_ci_debug/vcpkg_ci_debug/vcpkg/buildtrees/grpc/config-x64-linux-rel-CMakeCache.txt.log
-          echo "***** general *****"
-          cat /home/runner/work/vcpkg_ci_debug/vcpkg_ci_debug/vcpkg/buildtrees/grpc/config-x64-linux-out.log
+          vcpkg/vcpkg install re2
+        

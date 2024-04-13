@@ -20,7 +20,6 @@ jobs:
          yum groupinstall -y 'Development Tools'
          echo "source /opt/rh/gcc-toolset-13/enable" >> ~/.bash_profile
          echo "source ~/.bash_profile" >> ~/.bashrc
-         source ~/.bashrc
          g++ -v
     - name: Install vcpkg
       run: |
@@ -31,5 +30,6 @@ jobs:
           CC: gcc
           CXX: g++
       run: |
+          source ~/.bashrc
           vcpkg/vcpkg install boost-cobalt
           

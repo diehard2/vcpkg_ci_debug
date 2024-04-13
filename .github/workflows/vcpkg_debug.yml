@@ -15,11 +15,12 @@ jobs:
     steps:
     - name: Setup dev environment
       run: |
-        dnf update -y && dnf install -y epel-release && dnf config-manager --enable epel && dnf install -y yum-utils && dnf config-manager --set-enabled powertools 
-        dnf install -y  git gcc-toolset-13 cmake curl zip unzip tar ninja-build
-        echo "source /opt/rh/gcc-toolset-13/enable" >> ~/.bash_profile
-        echo "source ~/.bash_profile" >> ~/.bashrc
-        source ~/.bashrc
+         dnf update -y && dnf install -y epel-release && dnf config-manager --enable epel && dnf install -y yum-utils && dnf config-manager --set-enabled powertools 
+         dnf install -y  git gcc-toolset-13 cmake curl zip unzip tar scl-utils
+         echo "source /opt/rh/gcc-toolset-13/enable" >> ~/.bash_profile
+         echo "source ~/.bash_profile" >> ~/.bashrc
+         source ~/.bashrc
+         g++ -v
     - name: Install vcpkg
       env: 
         CC: gcc

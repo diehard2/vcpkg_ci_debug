@@ -26,10 +26,12 @@ jobs:
         git clone https://github.com/microsoft/vcpkg.git
         vcpkg/bootstrap-vcpkg.sh
     - name: Install grpc\
-      env:
-          CC: gcc
-          CXX: g++
+      #env:
+          # CC: gcc
+          # CXX: g++
       run: |
           source ~/.bashrc
+          echo $CXX
+          echo $CC
           vcpkg/vcpkg install boost-cobalt
           

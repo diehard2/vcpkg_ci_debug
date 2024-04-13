@@ -30,5 +30,8 @@ jobs:
         vcpkg/bootstrap-vcpkg.sh
     - name: Install grpc
       run: |
+          set +e
           vcpkg/vcpkg install boost-cobalt
-        
+          cat /__w/vcpkg_ci_debug/vcpkg_ci_debug/vcpkg/buildtrees/detect_compiler/config-x64-linux-rel-CMakeCache.txt.log
+          echo "************"
+          cat /__w/vcpkg_ci_debug/vcpkg_ci_debug/vcpkg/buildtrees/detect_compiler/config-x64-linux-rel-out.log

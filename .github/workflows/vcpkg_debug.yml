@@ -10,6 +10,8 @@ jobs:
   compile:
     name: VCPKG DEBUG
     runs-on: ubuntu-latest
+    container:
+      image: almalinux:8.9
     steps:
     - name: Install package
       run: |
@@ -17,11 +19,17 @@ jobs:
         sudo rm `which cmake`
         hash -r
         sudo apt-get install perl autoconf-archive ninja-build cmake pkg-config
+    - name: Setup dev environment
+      run: |
+        dnf update -y && dnf install -y epel-release && dnf config-manager --enable epel && dnf install -y yum-utils && dnf config-manager --set-enabled powertools 
+        dnf install -y  git gcc-toolset-13 cmake curl zip unzip tar scl-utils
+        echo "source /opt/rh/gcc-toolset-13/enable" >> ~/.bash_profile
+        echo "source ~/.bash_profile" >> ~/.bashrc
+        source ~/.bashrc
     - name: Install vcpkg
       run: |
         git clone https://github.com/microsoft/vcpkg.git
         vcpkg/bootstrap-vcpkg.sh
-        env
     - name: Install grpc
       run: |
           vcpkg/vcpkg install boost-cobalt

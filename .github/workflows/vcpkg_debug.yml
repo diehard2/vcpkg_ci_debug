@@ -21,6 +21,9 @@ jobs:
         echo "source ~/.bash_profile" >> ~/.bashrc
         source ~/.bashrc
     - name: Install vcpkg
+      env: 
+        CC: gcc
+        CXX: g++
       run: |
         git clone https://github.com/microsoft/vcpkg.git
         vcpkg/bootstrap-vcpkg.sh

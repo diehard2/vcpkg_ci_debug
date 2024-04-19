@@ -21,6 +21,8 @@ jobs:
          echo "source /opt/rh/gcc-toolset-13/enable" >> ~/.bash_profile
          echo "source ~/.bash_profile" >> ~/.bashrc
          g++ -v
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Install vcpkg
       run: |
         git clone https://github.com/microsoft/vcpkg.git
@@ -33,6 +35,7 @@ jobs:
           source ~/.bashrc
           echo $CXX
           echo $CC
-          vcpkg/vcpkg install boost-any
+          vcpkg/vcpkg install
+          ls vcpkg/buildtrees
           cat   vcpkg/buildtrees/vcpkg-cmake/x64-linux.vcpkg_abi_info.txt
           
